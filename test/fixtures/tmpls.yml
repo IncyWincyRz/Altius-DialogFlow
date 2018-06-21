@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  intent: MyString
+  Gtemp: MyText
+  Ptemp: MyText
+
+two:
+  intent: MyString
+  Gtemp: MyText
+  Ptemp: MyText

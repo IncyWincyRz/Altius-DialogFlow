@@ -1,0 +1,2 @@
+class Tmpl < ApplicationRecord
+end

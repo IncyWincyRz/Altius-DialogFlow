@@ -3,8 +3,9 @@ class PagesController < ApplicationController
   end
 
   def home
-  	Ad1.push
-  	@data1 = Ad1.all
+  	@data1 = Ad1.push("The quality of the product is below average.")
+  	#@data1 = Ad1.all
+  	#byebug
   	render json: @data1
   end
 
