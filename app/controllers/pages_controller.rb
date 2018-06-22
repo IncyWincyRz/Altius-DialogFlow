@@ -3,6 +3,7 @@ class PagesController < ApplicationController
   end
 
   def home
+    byebug
   	@data1 = Ad1.push("The quality of the product is below average.")
   	#@data1 = Ad1.all
   	#byebug

@@ -21,8 +21,10 @@ class Ad1 < ApplicationRecord
 		puts result
 		@a = Ad1.new(review:line, response:result)
 		@a.save
-		@sel = Ad2.where( intent: @a.response.downcase).pluck(:template)
+		@sel = Tmpl.where( intent: @a.response.downcase).pluck(:Gtemp)
 		puts @sel 
-		return @sel
+		@bel = Tmpl.where( intent: @a.response.downcase).pluck(:Ptemp)
+		puts @bel
+		return {primary: @sel,secondary: @bel}
 	end
 end
