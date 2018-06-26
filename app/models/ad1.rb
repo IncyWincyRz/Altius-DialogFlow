@@ -1,5 +1,5 @@
 class Ad1 < ApplicationRecord
-	def self.push(comment)
+	def self.pass(comment)
 		require 'json'
 		require 'uri'
 		require 'net/http'
@@ -19,12 +19,13 @@ class Ad1 < ApplicationRecord
 		data = JSON.parse(response.read_body)
 		result = data["result"]["fulfillment"]["speech"]
 		puts result
-		@a = Ad1.new(review:line, response:result)
+		@a = Ad1.new(review: line, response: result)
 		@a.save
-		@sel = Tmpl.where( intent: @a.response.downcase).pluck(:Gtemp)
+                @intent = @a.response.downcase
+		@sel = Tmpl.where( intent: @intent).pluck(:Gtemp)
 		puts @sel 
-		@bel = Tmpl.where( intent: @a.response.downcase).pluck(:Ptemp)
+		@bel = Tmpl.where( intent: @intent).pluck(:Ptemp)
 		puts @bel
-		return {primary: @sel,secondary: @bel}
+		return {intent: @intent,primary: @sel,secondary: @bel}
 	end
 end
